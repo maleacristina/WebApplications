@@ -14,12 +14,32 @@
         <!-- custom styles -->
         <link rel="stylesheet" href="styles.css" >
 
+        <!-- firebase related files-->
+        <script src="https://www.gstatic.com/firebasejs/4.8.0/firebase.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/4.6.2/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/4.6.2/firebase-firestore.js"></script>
+
+        <script>
+          // Initialize Firebase
+          var config = {
+            apiKey: "AIzaSyDxDdoJbNj-9a0lnFu2RmQIZNEl79gRTZo",
+            authDomain: "employees-dda54.firebaseapp.com",
+            databaseURL: "https://employees-dda54.firebaseio.com",
+            projectId: "employees-dda54",
+            storageBucket: "employees-dda54.appspot.com",
+            messagingSenderId: "736967287956"
+          };
+          firebase.initializeApp(config);
+        </script>
+
         <!-- initialize script -->
         <script src="initialize.js"></script>
         <!-- filtering scripts -->
         <script src="filter.js"></script>
         <!-- custom script -->
         <script src="script.js"></script>
+
+        
 
     </head>
     <body>
