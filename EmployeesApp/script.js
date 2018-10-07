@@ -66,6 +66,27 @@ $(document ).ready(function() {
            });
         }
         else{
+            // Create a reference to the document by following the same pattern of the document name.
+            // Example: Ervis Trupja -> E.Trupja
+            var docuName = fname.charAt(0)+"."+lname;
+            var sfDocRef = db.collection("employees").doc(docuName);
+            sfDocRef.set({ 
+                fName:fname,
+                lName: lname,
+                email: email,
+                age: age,
+                gender: gender,
+                yearsOfExperience: yearsOfExperience,
+                isFullTime: isfulltime
+            })
+           .then(function() {
+                $('#operationStatus').html('<div class="alert alert-success"><strong>Success!</strong> Employee was updated.</div>').delay(2500).fadeOut('slow');
+                $('.employeeForm').css("display", "none");
+                LoadData();
+            })
+            .catch(function(error) {
+                $('#operationStatus').html('<div class="alert alert-danger"><strong>Failure!</strong> Employee could not be updated.</div>').delay(2500).fadeOut('slow');
+            })
         }
     });
 
