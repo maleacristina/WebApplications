@@ -114,9 +114,19 @@ $(document ).ready(function() {
         //Get the Employee Data
         var fName = $(this).closest('tr').find('.fname').text(); //First Name
         var lName = $(this).closest('tr').find('.lname').text(); //Last Name
+
+        // Create a reference to the document by following the same pattern of the document name.
+        // Example: Ervis Trupja -> E.Trupja
+        var docuName = fName.charAt(0)+"."+lName;
+        db.collection("employees").doc(docuName).delete().then(function() {
+            $('#operationStatus').html('<div class="alert alert-success"><strong>Success!</strong> Employee was deleted.</div>').delay(2500).fadeOut('slow');
+            LoadData();
+        }).catch(function(error) {
+            $('#operationStatus').html('<div class="alert alert-danger"><strong>Failure!</strong> Employee was not deleted.</div>').delay(2500).fadeOut('slow');
+        });
+    });
     });
 
     $("#searchEmployee" ).change(function() {
         console.log('You entered: ', $(this).val());
       });
-});
