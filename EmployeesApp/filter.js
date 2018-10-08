@@ -46,6 +46,14 @@ $(document).ready(function() {
                     LoadTableData(querySnapshot);
                 });
             });
+            $("#searchEmployee" ).change(function() {
+                //console.log('You entered: ', $(this).val());
+                var searchValue = $(this).val();
+                employeesRef.where("fName", "==", searchValue)
+                .onSnapshot(function(querySnapshot){
+                    LoadTableData(querySnapshot);
+                });
+              });
 });
 
 db.collection("employees").onSnapshot(function(snapShot){

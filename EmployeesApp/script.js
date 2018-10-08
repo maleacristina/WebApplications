@@ -99,6 +99,4 @@ $(document ).ready(function() {
     });
     });
 
-    $("#searchEmployee" ).change(function() {
-        console.log('You entered: ', $(this).val());
-      });
+   
