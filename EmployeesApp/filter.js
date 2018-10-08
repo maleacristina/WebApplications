@@ -42,7 +42,7 @@ $(document).ready(function() {
 
             $('#clearFilter').click(function(){
                 //console.log('clearFilter Filter executed');
-                employeesRef.get().then(function(querySnapshot) {
+                employeesRef.orderBy("fName", "desc").limit(5).get().then(function(querySnapshot) {
                     LoadTableData(querySnapshot);
                 });
             });
